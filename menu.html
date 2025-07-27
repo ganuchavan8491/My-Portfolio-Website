@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Sliding Menu</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+    }
+
+    .menu {
+      position: fixed;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      padding: 10px 0;
+      border-radius: 10px 0 0 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      z-index: 999;
+    }
+
+    .menu-bar {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      padding: 0 10px;
+    }
+
+    .menu-bar li {
+      position: relative;
+    }
+
+    .menu-bar li a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      text-decoration: none;
+      color: #444;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .menu-bar li a i {
+      font-size: 22px;
+      background: #e0e0e0;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .menu-bar li a span {
+      position: absolute;
+      right: 60px;
+      background: #43cef9;
+      color: #fff;
+      padding: 6px 14px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 5px 0 0 5px;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateX(20px);
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+
+    .menu-bar li a:hover i {
+      background-color: #43cef9;
+      color: white;
+      transform: scale(1.1);
+    }
+
+    .menu-bar li a:hover span {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Active menu styling */
+    .menu-bar li a.active {
+      color: #fff;
+    }
+
+    .menu-bar li a.active i {
+      background-color: #43cef9;
+      color: #fff;
+    }
+
+    .menu-bar li a.active span {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: auto;
+    }
+
+    /* Responsive for mobile */
+    @media (max-width: 480px) {
+      .menu {
+        top: auto;
+        bottom: 20px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        border-radius: 12px;
+        padding: 10px;
+      }
+
+      .menu-bar {
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+        padding: 0;
+      }
+
+      .menu-bar li a {
+        width: 45px;
+        height: 45px;
+      }
+
+      .menu-bar li a i {
+        font-size: 18px;
+        width: 45px;
+        height: 45px;
+      }
+
+      .menu-bar li a span {
+        bottom: 55px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        border-radius: 6px;
+        font-size: 12px;
+        padding: 4px 10px;
+      }
+
+      .menu-bar li a:hover span,
+      .menu-bar li a.active span {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-5px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="menu">
+    <ul class="menu-bar">
+      <li>
+        <a href="index.html">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          <i class="fas fa-user"></i>
+          <span>About Me</span>
+        </a>
+      </li>
+      <li>
+        <!-- 🔁 Duplicate Content Section -->
+        <a href="https://github.com/ganuchavan8491?tab=repositories" target="_blank">
+          <i class="fas fa-briefcase"></i>
+          <span>Work</span>
+        </a>
+      </li>
+      <li>
+        <a href="contact.html">
+          <i class="fas fa-envelope"></i>
+          <span>Contact</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    const links = document.querySelectorAll('.menu-bar a');
+    const currentPage = window.location.pathname.split('/').pop();
+
+    links.forEach(link => {
+      const href = link.getAttribute('href');
+      if (
+        href === currentPage ||
+        (href === 'index.html' && currentPage === '') // handles homepage fallback
+      ) {
+        link.classList.add('active');
+      }
+    });
+  </script>
+
+</body>
+</html>

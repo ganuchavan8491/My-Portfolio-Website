@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+    }
+
+    .title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px !important;
+      position: relative;
+    }
+
+    .heading {
+      font-size: 200px;
+      color: rgba(123, 115, 115, 0.315);
+      font-weight: bolder;
+      position: absolute;
+      z-index: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .subtitle {
+      font-weight: bolder;
+      font-size: 110px;
+      color: rgb(0, 238, 232);
+      z-index: 1;
+      position: relative;
+    }
+
+    .personal-info {
+      padding: 50px 10%;
+      color: #333;
+    }
+
+    .personal-info h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+
+    .info ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px 60px;
+      list-style: none;
+      padding: 0;
+      margin: 0 0 40px 0;
+    }
+
+    .info ul li {
+      font-size: 16px;
+      font-weight: 400;
+      color: #bcb1b1;
+    }
+
+    .info ul li strong {
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .info a {
+      color: #ffffff;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .info a:hover {
+      color: #46e0d6;
+      text-decoration: underline;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 25px;
+      border: 2px solid #41b7e5;
+      color: #dad7d7;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: 0.3s ease;
+      font-size: 14px;
+      background-color: transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::after {
+      content: "\f019"; /* download icon from Font Awesome */
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      background: #6eddf1;
+      color: #fff;
+      padding: 12px;
+      border-radius: 50%;
+      margin-left: 12px;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #7ec50010;
+      border-color: #31dce8;
+    }
+
+    .btn:hover::after {
+      background-color: #4ff2f4;
+    }
+
+    .skills {
+      padding: 80px 10px;
+      text-align: center;
+    }
+
+    .skills h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #dccdcd;
+      margin-bottom: 60px;
+      text-transform: uppercase;
+    }
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 60px;
+    }
+
+    .skill {
+      width: 160px;
+      text-align: center;
+    }
+
+    .circle {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin: 0 auto;
+    }
+
+    .circle::before {
+      content: '';
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .circle::after {
+      content: attr(data-percent) '%';
+      position: absolute;
+      z-index: 2;
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .skill p {
+      margin-top: 18px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+
+    .education {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px 0;
+    }
+
+    .education h2 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 40px;
+      border-left: 2px solid #ccc;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 40px;
+      padding-left: 30px;
+    }
+
+    .timeline-item::before {
+      content: "\f0b1"; /* briefcase icon */
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      left: -25px;
+      top: 0;
+      width: 30px;
+      height: 30px;
+      background: #56bbea;
+      color: rgb(18, 16, 16);
+      border-radius: 50%;
+      text-align: center;
+      line-height: 30px;
+      font-size: 16px;
+    }
+
+    .year {
+      position: absolute;
+      left: -80px;
+      top: 0;
+      background: #2b2323;
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .timeline-item h3 {
+      font-size: 18px;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .timeline-item p {
+      margin: 5px 0 0 0;
+      font-size: 14px;
+      color: #555;
+    }
+
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+      padding-bottom: 80px;
+    }
+
+    @media (max-width: 768px) {
+      .heading {
+        font-size: 60px;
+      }
+
+      .subtitle {
+        font-size: 36px;
+      }
+
+      .info ul {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .btn {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .skills-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .skill {
+        width: 80%;
+        font-size: 16px;
+        padding: 14px 0;
+        background-color: #1a1a1a;
+        color: #00d9ff;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      }
+
+      .education {
+        padding: 20px;
+      }
+
+      .timeline {
+        padding-left: 20px;
+        margin-left: 10px;
+        border-left: 2px solid #00d9ff;
+      }
+
+      .timeline-item {
+        padding-left: 15px;
+        margin-bottom: 25px;
+      }
+
+      .timeline-item::before {
+        content: '';
+        left: -12px;
+        top: 6px;
+        width: 12px;
+        height: 12px;
+        background: #00d9ff;
+        border-radius: 50%;
+        border: 2px solid #0f0f0f;
+      }
+
+      .year {
+        font-size: 13px;
+        color: #ccc;
+        margin-bottom: 4px;
+        left: -56px;
+      }
+
+      .timeline-item h3 {
+        font-size: 16px;
+        color: #fff;
+        margin-bottom: 4px;
+      }
+
+      .timeline-item p {
+        font-size: 13px;
+        color: #ccc;
+        line-height: 1.6;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="menu-placeholder"></div>
+  <script src="./assetes/js/script.js"></script>
+
+  <div class="title">
+    <h1 class="subtitle">ABOUT ME</h1>
+    <div class="heading">PORTFOLIO</div> <!-- duplicate text component -->
+  </div>
+
+  <section class="personal-info">
+    <h2>Personal Information</h2>
+    <div class="info">
+      <ul>
+        <li><strong>First Name:</strong> Ganesh</li>
+        <li><strong>Last Name:</strong> Chavan</li>
+        <li><strong>Age:</strong> 22 Years</li>
+        <li><strong>Nationality:</strong> Indian</li>
+        <li><strong>Github:</strong> <a href="https://github.com/ganuchavan8491">Ganesh Chavan</a></li>
+        <li><strong>Address:</strong> Mumbai, India</li>
+        <li><strong>Phone:</strong> +91 7038158491</li>
+        <li><strong>Email:</strong> <a href="mailto:ganeshchavan688002@gmail.com">ganeshchavan688002@gmail.com</a></li>
+        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ganeshchavan8491/">Ganesh Chavan</a></li>
+        <li><strong>Languages:</strong> English, Marathi, Hindi</li>
+      </ul>
+    </div>
+    <a href="./assetes/cv/ganeshchavan.pdf" class="btn">Download CV</a>
+  </section>
+
+  <section class="skills">
+    <h2 class="section-title">My Skills</h2>
+    <div class="skills-container">
+      <div class="skill">
+        <div class="circle" data-percent="90"></div>
+        <p>HTML</p>
+      </div>
+      <div class="skill">
+        <div class="circle" data-percent="80"></div>
+        <p>JavaScript</p>
+      </div>
+      <div class="skill">
+        <div class="circle" data-percent="85"></div>
+        <p>CSS</p>
+      </div>
+      <div class="skill">
+        <div class="circle" data-percent="93"></div>
+        <p>Python</p>
+      </div>
+      <div class="skill">
+        <div class="circle" data-percent="98"></div>
+        <p>WordPress</p>
+      </div>
+      <div class="skill">
+        <div class="circle" data-percent="70"></div>
+        <p>Java</p>
+      </div>
+      <div class="skill">
+        <div class="circle" data-percent="92"></div>
+        <p>Shopify</p>
+      </div>
+      <div class="skill">
+        <div class="circle" data-percent="90"></div>
+        <p>C++</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="education">
+    <h2>EDUCATION</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="year">2025</div>
+        <h3>Diploma in Computer Engineering – MSBTE</h3>
+        <p>Rajaram Shinde Institute of Engineering & Technology</p>
+      </div>
+      <div class="timeline-item">
+        <div class="year">2022</div>
+        <h3>HSC - Science – Maharastra Bord</h3>
+        <p>Babasaheb Desai College, Satara</p>
+      </div>
+      <div class="timeline-item">
+        <div class="year">2020</div>
+        <h3>SSC – Maharastra Bord</h3>
+        <p>Guruwarya Lalasaheb Patankar Vidyalaya, Satara</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.querySelectorAll(".circle").forEach(circle => {
+      const percent = circle.getAttribute("data-percent");
+      circle.style.background = `conic-gradient(#00bcd4 0% ${percent}%, #333 ${percent}%)`;
+    });
+  </script>
+</body>
+</html>

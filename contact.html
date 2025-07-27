@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact</title>
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+    }
+
+    .title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px !important;
+      position: relative;
+    }
+
+    .heading {
+      font-size: 200px;
+      color: rgba(123, 115, 115, 0.315);
+      font-weight: bolder;
+      position: absolute;
+      z-index: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .subtitle {
+      font-weight: bolder;
+      font-size: 110px;
+      color: rgb(0, 238, 232);
+      z-index: 1;
+      position: relative;
+    }
+
+    .contact-page {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 40px;
+      padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+
+      body{
+        padding-bottom: 80px;
+      }
+
+      .heading {
+        font-size: 100px;
+      }
+
+      /* Duplicate */
+      .heading {
+        font-size: 60px;
+      }
+
+      /* Duplicate */
+      .subtitle {
+        font-size: 28px !important;
+      }
+
+      /* Duplicate */
+      .subtitle {
+        font-size: 36px;
+      }
+
+      /* Duplicate */
+      .contact-page {
+        flex-direction: column;
+        padding: 10px;
+      }
+
+      /* Duplicate */
+      .contact-form {
+        padding-left: 0;
+      }
+    }
+
+    .contact-info {
+      flex: 1;
+      min-width: 300px;
+      padding: 20px;
+    }
+
+    .contact-info h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #e4dcdc;
+      font-weight: bold;
+    }
+
+    .contact-info p {
+      font-size: 16px;
+      color: #aaa;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .info-box {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .info-box i {
+      font-size: 26px;
+      color: #58bec7;
+      min-width: 30px;
+    }
+
+    .info-box div {
+      font-size: 15px;
+      color: #ccc;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .info-box a {
+      text-decoration: none;
+      color: #e4dcdc;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .info-box a:hover {
+      color: #46d9db;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      text-decoration: none;
+      font-size: 25px;
+      color: #ccc;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #4faebb;
+      transform: scale(1.2);
+    }
+
+    .contact-form {
+      flex: 2;
+      min-width: 300px;
+      padding-left: 50px;
+    }
+
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .form-group {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .form-group input {
+      flex: 1;
+      background-color: #0f0f0f3a;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: 2px solid #4fb9bb;
+      border-radius: 30px;
+      outline: none;
+      color:whitesmoke;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus {
+      border-color: #4fb9bb;
+      color:whitesmoke; /* Duplicate - already defined above */
+    }
+
+    .contact-form textarea {
+      padding: 15px 20px;
+      font-size: 16px;
+      border-radius: 20px;
+      border: 2px solid #4fb9bb;
+      background-color: #0f0f0f3a;
+      resize: none;
+      height: 160px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact-form textarea:focus {
+      border-color: #4fadbb;
+      color:whitesmoke; /* Duplicate */
+    }
+
+    .send-btn {
+      align-self: flex-start;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      border: 2px solid #4fbbae;
+      border-radius: 30px;
+      padding: 10px 25px;
+      cursor: pointer;
+      color: #fff;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .send-btn:hover {
+      background: #4fadbb;
+      color: #fff;
+    }
+
+    .send-btn i {
+      color: #61d4e4;
+      transition: color 0.3s;
+    }
+
+    .send-btn:hover i {
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      /* Duplicate already defined above */
+      .contact-page {
+        flex-direction: column;
+        padding: 10px;
+        gap: 30px;
+      }
+
+      /* Duplicate */
+      .contact-form {
+        padding-left: 0;
+      }
+
+      .form-group {
+        flex-direction: column;
+      }
+
+      .form-group input,
+      .contact-form textarea {
+        width: 100%;
+      }
+
+      .send-btn {
+        align-self: center;
+      }
+
+      .title {
+        padding: 30px 10px;
+      }
+
+      .info-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .social-icons {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Heading -->
+  <div class="title">
+    <h1 class="subtitle">GET IN TOUCH</h1>
+    <div class="heading">CONTACT</div>
+  </div>
+
+  <!-- Contact Section -->
+  <div class="contact-page">
+    
+    <!-- Left Column -->
+    <section class="contact-info">
+      <h2>Let’s Connect!</h2>
+      <p>Feel free to get in touch with me. I am always open to discussing new projects, creative ideas or opportunities to be part of your visions.</p>
+
+      <div class="info-box">
+        <i class="fas fa-envelope-open-text"></i>
+        <div>
+          MAIL ME <br/>
+          <a href="mailto:ganeshchavan688002@gmail.com">ganeshchavan688002@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <i class="fas fa-phone-square-alt"></i>
+        <div>
+          CALL ME <br/>
+          <a href="tel:7038158491">7038158491</a>
+        </div>
+      </div>
+
+      <div class="social-icons">
+        <a href="https://www.youtube.com/@Me_BEROJAGAR_ENGINEER" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://github.com/ganuchavan8491" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/ganeshchavan8491/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/ganeshchavan_gc/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://x.com/ganeshchavan_gc/" target="_blank"><i class="fab fa-x-twitter"></i></a>
+      </div>
+    </section>
+
+    <!-- Right Column -->
+    <div class="contact-form">
+      <form action="#" method="POST">
+        <div class="form-group">
+          <input type="text" placeholder="Your name" required>
+          <input type="email" placeholder="Your email" required>
+          <input type="text" placeholder="Your subject" required>
+        </div>
+        <textarea placeholder="Your Message" required></textarea>
+        <button class="send-btn" type="submit">
+          SEND MESSAGE <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+
+    <div id="menu-placeholder"></div>
+    <script src="./assetes/js/script.js"></script>
+  </div>
+</body>
+</html>
