@@ -40,6 +40,15 @@
           }
         }
         typeEffect();
+
+        const heading = document.getElementById("typing");
+        const colors = ["#e91e63", "#2196f3", "#4caf50", "#ff9800", "#9c27b0"];
+        let j = 0;
+    
+        setInterval(() => {
+          heading.style.color = colors[j];
+          j = (j + 1) % colors.length;
+        }, 1000);
     </script>
   </div>
 </section>
