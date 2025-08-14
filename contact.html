@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact</title>
-  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
@@ -348,6 +348,33 @@
 
     <div id="menu-placeholder"></div>
     <script src="./assetes/js/script.js"></script>
+
+    <script>
+    // fetch function only  work on live server dont copy path and run
+    // ajax code
+    fetch('menu.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('menu-placeholder').innerHTML = data;
+
+        const links = document.querySelectorAll('.menu-bar a');
+        const currentPage = window.location.pathname.split('/').pop();
+
+        links.forEach(link => {
+          const href = link.getAttribute('href');
+          if (
+            href === currentPage ||
+            (href === 'index.html' && currentPage === '')
+          ) {
+            links.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+          }
+        });
+      })
+      .catch(error => console.error('Failed to load menu:', error));
+      // ajax code end
+
+  </script>
   </div>
 </body>
 </html>
