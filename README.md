@@ -12,7 +12,7 @@ It includes my resume, projects, skills, and contact details.
 - 👤 **Name:** Ganesh Chavan  
 - 📧 **Email:** ganuchavan8491@gmail.com  
 - 🌐 **Website:** [My Portfolio](https://ganuchavan8491.github.io/My-Portfolio-Website/)
-- 📍 **Location:** India
+- 📍 **Location:**  Mumbai, India
 
 ---
 
