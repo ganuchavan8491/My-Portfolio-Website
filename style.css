@@ -49,7 +49,7 @@ body {
 }
 
 .headline h1 {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
     margin-bottom: 20px;
 
     /* Duplicate: already set body color */
@@ -76,6 +76,10 @@ body {
     /* Duplicate padding like h1 and button */
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+.typing{
+    font-size: 2.5rem;
 }
 
 button {
