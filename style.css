@@ -60,6 +60,15 @@ body {
     padding-bottom: 20px;
 }
 
+canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none; /* क्लिक block होणार नाही */
+    }
+
 .headline h1 span {
 /*     color: #00d9ff; */
     display: block;
