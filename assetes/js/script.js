@@ -9,7 +9,6 @@ fetch('menu.html')
 
 // mouse curser
 
-
  const canvas = document.getElementById("trail");
     const ctx = canvas.getContext("2d");
     let w = canvas.width = window.innerWidth;
@@ -20,14 +19,25 @@ fetch('menu.html')
       h = canvas.height = window.innerHeight;
     });
 
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
     const particles = [];
-    const maxParticles = 40;
+    const maxParticles = isMobile ? 20 : 40; // mobile वर कमी
     let mouse = { x: w/2, y: h/2 };
 
+    // PC mouse move
     document.addEventListener("mousemove", e => {
       mouse.x = e.clientX;
       mouse.y = e.clientY;
       spawnParticles();
+    });
+
+    // Mobile touch move
+    document.addEventListener("touchmove", e => {
+      if (e.touches.length > 0) {
+        mouse.x = e.touches[0].clientX;
+        mouse.y = e.touches[0].clientY;
+        spawnParticles();
+      }
     });
 
     class Particle {
