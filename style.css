@@ -67,6 +67,7 @@ canvas {
       width: 100vw;
       height: 100vh;
       pointer-events: none; /* क्लिक block होणार नाही */
+      z-index: 0;
     }
 
 .headline h1 span {
